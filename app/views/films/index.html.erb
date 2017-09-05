@@ -1,0 +1,19 @@
+<h1>Witamy na stronie!</h1>
+
+<p><%= link_to "Aktorzy", actors_path %></p>
+
+
+  <h2>Lista filmów:</h2>
+
+  <% @films.each do |film| %>
+
+  <table>
+    <tr>
+      <th><h3><strong>Tytuł:</strong></h3></th>
+      <th><%= film.title %></th>
+      <td><%= link_to "Pokaż opis", film_path(film) %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <p><%= link_to "Dodaj film", new_film_path %></p>

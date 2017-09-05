@@ -1,0 +1,40 @@
+<p>
+  <h4><strong>Imię nazwisko:</strong></h4>
+  <%= @actor.name_surname %>
+</p>
+
+<p>
+  <h4><strong>Data urodzenia:</strong></h4>
+  <%= @actor.date_of_birth %>
+</p>
+
+<p>
+  <h4><strong>Miejsce urodzenia:</strong></h4>
+  <%= @actor.country_of_origin %>
+</p>
+
+<p>
+  <h4><strong>Biografia:</strong></h4>
+  <%= @actor.biography %>
+</p>
+
+<p>
+  <h4><strong>Filmografia:</strong></h4>
+  <%= @actor.filmography %>
+</p>
+
+<% if @previous_actor %>
+  <%=link_to "<< poprzedni", actor_path(@previous_actor) %>
+<% end %>
+
+<% if @next_actor %>
+  <%= link_to "następny >>", actor_path(@next_actor) %>
+<% end %>
+
+<p>
+  <%= link_to "Wróć", actors_path %>
+  <%= link_to "Edytuj", edit_actor_path(@actor) %>
+  <%= link_to "Usuń", actor_path(@actor),
+                      method: :delete,
+                      data: { confirm: "Czy jesteś pewny?"} %>
+</p>

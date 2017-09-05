@@ -1,0 +1,29 @@
+<%= render "common/errors", model: @actor %>
+
+<%= form_for(@actor) do |f| %>
+  <p>
+    <%= f.label :imię_i_nazwisko %><br>
+    <%= f.text_field :name_surname %>
+  </p>
+  <p>
+    <%= f.label :data_urodzenia %><br>
+    <%= f.date_field :date_of_birth %>
+  </p>
+  <p>
+    <%= f.label :miejsce_urodzenia %><br>
+    <%= f.text_field :country_of_origin %>
+  </p>
+  <p>
+    <%= f.label :biografia %><br>
+    <%= f.text_area :biography %>
+  </p>
+  <p>
+    <%= f.label :filmografia %><br>
+    <%= f.text_area :filmography %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to "Wróć", films_path %>

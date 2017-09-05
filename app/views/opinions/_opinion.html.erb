@@ -1,0 +1,18 @@
+<p>
+  <strong>Autor:</strong>
+  <%= opinion.author %>
+</p>
+
+<p>
+  <strong>Ocena:</strong>
+  <%= opinion.rating %>
+</p>
+
+<p>
+  <strong>Opinia:</strong>
+  <%= opinion.comment %>
+</p>
+
+<%= link_to "Usuń", film_opinion_path(@film, opinion),
+                        method: :delete,
+                        data: { confirm: "Czy jesteś pewny" } %>

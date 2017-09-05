@@ -1,0 +1,62 @@
+<p>
+  <h4><strong>Tytuł:</strong></h4>
+  <%= @film.title %>
+</p>
+
+<p>
+  <h4><strong>Data premiery:</strong></h4>
+  <%= @film.premiere_date %>
+</p>
+
+<p>
+  <h4><strong>Czas trwania (min.):</strong></h4>
+  <%= @film.duration %>
+</p>
+
+<p>
+  <h4><strong>Gatunek:</strong></h4>
+  <%= @film.genre %>
+</p>
+
+<p>
+  <h4><strong>Reżyser:</strong></h4>
+  <%= @film.director %>
+</p>
+
+<p>
+  <h4><strong>Scenariusz:</strong></h4>
+  <%= @film.scenarist %>
+</p>
+
+<p>
+  <h4><strong>Kraj produkcji:</strong></h4>
+  <%= @film.country %>
+</p>
+
+<p>
+  <h4><strong>Opis:</strong></h4>
+  <%= @film.description %>
+</p>
+
+<% if @previous_film %>
+  <%=link_to "<< poprzedni", film_path(@previous_film) %>
+<% end %>
+
+<% if @next_film %>
+  <%= link_to "następny >>", film_path(@next_film) %>
+<% end %>
+
+<h3>Opinie:</h3>
+<%= render @film.opinions.order(created_at: :desc) %>
+
+  <div>
+<h5>Dodaj opinię:</h5>
+  <%= render "opinions/form" %>
+</div>
+
+
+<%= link_to "Wróć", films_path %>
+<%= link_to "Edytuj", edit_film_path(@film) %>
+<%= link_to "Usuń", film_path(@film),
+                      method: :delete,
+                      data: { confirm: "Czy jesteś pewny?"} %>
